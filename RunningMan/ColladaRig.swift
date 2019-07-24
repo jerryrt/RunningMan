@@ -14,7 +14,7 @@ class ColladaRig {
     
     init(modelNamed: String, daeNamed: String){
         
-        let sceneSource = ColladaRig.getSceneSource(daeNamed)
+        let sceneSource = ColladaRig.getSceneSource(daeNamed:daeNamed)
         node = sceneSource.entryWithIdentifier(modelNamed, withClass: SCNNode.self)!
         
         //Find and add the armature
@@ -24,23 +24,24 @@ class ColladaRig {
         node.addChildNode(armature)
         
         //store and trigger the "rest" animation
-        loadAnimation("rest", daeNamed: daeNamed)
-        playAnimation("rest")
+        loadAnimation(withKey:"rest", daeNamed: daeNamed)
+        playAnimation(named:"rest")
         
         //position node on ground
         var min = SCNVector3(0,0,0)
         var max = SCNVector3(0,0,0)
-        node.getBoundingBoxMin(&min, max: &max)
+//        node.getBoundingBoxMin(&min, max: &max)
+        (min, max) = node.boundingBox
         node.position = SCNVector3(0, -min.y, 0)
     }
     
     static func getSceneSource(daeNamed: String) -> SCNSceneSource {
-        let collada = NSBundle.mainBundle().URLForResource("art.scnassets/\(daeNamed)", withExtension: "dae")!
-        return SCNSceneSource(URL: collada, options: nil)!
+        let collada = Bundle.main.url(forResource: "art.scnassets/\(daeNamed)", withExtension: "dae")!
+        return SCNSceneSource(url: collada, options: nil)!
     }
     
     func loadAnimation(withKey: String, daeNamed: String, fade: CGFloat = 0.3){
-        let sceneSource = ColladaRig.getSceneSource(daeNamed)
+        let sceneSource = ColladaRig.getSceneSource(daeNamed:daeNamed)
         let animation = sceneSource.entryWithIdentifier("\(daeNamed)-1", withClass: CAAnimation.self)!
         
         // animation.speed = 1
@@ -57,18 +58,18 @@ class ColladaRig {
     }
     
     func walk() {
-        node.pauseAnimationForKey("rest")
+        node.pauseAnimation(forKey:"rest")
         //  node.removeAnimationForKey("rest", fadeOutDuration: 0.3)
-        playAnimation("walk")
-        let run = SCNAction.repeatActionForever( SCNAction.moveByX(0, y: 0, z: 12, duration: 1))
-        run.timingMode = .EaseInEaseOut //ease the action in to try to match the fade-in and fade-out of the animation
+        playAnimation(named:"walk")
+        let run = SCNAction.repeatForever( SCNAction.moveBy(x: 0, y: 0, z: 12, duration: 1))
+        run.timingMode = .easeInEaseOut //ease the action in to try to match the fade-in and fade-out of the animation
         node.runAction(run, forKey: "walk")
     }
     
     func stopWalking() {
-        node.resumeAnimationForKey("rest")
+        node.resumeAnimation(forKey:"rest")
         //   node.addAnimation(animations["rest"]!, forKey: "rest")
-        node.removeAnimationForKey("walk", fadeOutDuration: 0.3)
-        node.removeActionForKey("walk")
+        node.removeAnimation(forKey:"walk", fadeOutDuration: 0.3)
+        node.removeAction(forKey:"walk")
     }
 }

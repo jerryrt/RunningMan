@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		A2073AB41D11A68900E2C6B1 /* ColladaRig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColladaRig.swift; sourceTree = "<group>"; };
-		A20BA7031CFF1A0100563A3B /* RunningMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20BA7031CFF1A0100563A3B /* OSX-RunningMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSX-RunningMan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20BA7061CFF1A0100563A3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20BA7081CFF1A0100563A3B /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		A20BA70A1CFF1A0100563A3B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +26,7 @@
 		A20BA70E1CFF1A0100563A3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20BA7111CFF1A0100563A3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		A20BA7131CFF1A0100563A3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF08B1BC22E896DC0061962E /* RunningMan copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RunningMan copy-Info.plist"; path = "/Users/jerry.tian/Projects/scenekit_running_man/RunningMan copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,13 +45,14 @@
 			children = (
 				A20BA7051CFF1A0100563A3B /* RunningMan */,
 				A20BA7041CFF1A0100563A3B /* Products */,
+				DF08B1BC22E896DC0061962E /* RunningMan copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		A20BA7041CFF1A0100563A3B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A20BA7031CFF1A0100563A3B /* RunningMan.app */,
+				A20BA7031CFF1A0100563A3B /* OSX-RunningMan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,9 +75,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A20BA7021CFF1A0100563A3B /* RunningMan */ = {
+		A20BA7021CFF1A0100563A3B /* OSX-RunningMan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A20BA7161CFF1A0100563A3B /* Build configuration list for PBXNativeTarget "RunningMan" */;
+			buildConfigurationList = A20BA7161CFF1A0100563A3B /* Build configuration list for PBXNativeTarget "OSX-RunningMan" */;
 			buildPhases = (
 				A20BA6FF1CFF1A0100563A3B /* Sources */,
 				A20BA7001CFF1A0100563A3B /* Frameworks */,
@@ -85,9 +87,9 @@
 			);
 			dependencies = (
 			);
-			name = RunningMan;
+			name = "OSX-RunningMan";
 			productName = RunningMan;
-			productReference = A20BA7031CFF1A0100563A3B /* RunningMan.app */;
+			productReference = A20BA7031CFF1A0100563A3B /* OSX-RunningMan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,6 +112,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -118,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A20BA7021CFF1A0100563A3B /* RunningMan */,
+				A20BA7021CFF1A0100563A3B /* OSX-RunningMan */,
 			);
 		};
 /* End PBXProject section */
@@ -253,6 +256,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = saltpig.RunningMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -265,6 +269,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = saltpig.RunningMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -280,7 +285,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A20BA7161CFF1A0100563A3B /* Build configuration list for PBXNativeTarget "RunningMan" */ = {
+		A20BA7161CFF1A0100563A3B /* Build configuration list for PBXNativeTarget "OSX-RunningMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A20BA7171CFF1A0100563A3B /* Debug */,
